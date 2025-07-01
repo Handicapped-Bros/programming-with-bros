@@ -1,0 +1,83 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 1e6;// Change me depending on the constrains
+const int p1 = 29, p2 = 37, m1 = 1e9 + 7, m2 = 1e9 + 9;
+
+int pw(int a, int b, int m) {
+    int ret = 1;
+    while(b) {
+        if(b & 1) ret = 1LL * ret * a % m;
+        a = 1LL * a * a % m;
+        b >>= 1;
+    }
+    return ret;
+}
+
+pair<int, int>p[N + 7], i_p[N + 7];
+inline void pre_cal() {//Call me before starting the party
+    p[0] = {1, 1};
+    for(int i = 1; i <= N; i++) {
+        p[i].first = 1LL * p[i - 1].first * p1 % m1;
+        p[i].second = 1LL * p[i - 1].second * p2 % m2;
+    }
+    int i1 = pw(p1, m1 - 2, m1), i2 = pw(p2, m2 - 2, m2);
+    i_p[0] = {1, 1};
+    for(int i = 1; i <= N; i++) {
+        i_p[i].first = 1LL * i_p[i - 1].first * i1 % m1;
+        i_p[i].second = 1LL * i_p[i - 1].second * i2 % m2;
+    }
+}
+
+pair<int, int>A[N + 7];
+inline void build(string a, int n) {
+    for(int i = 0; i < n; i++) {
+        A[i].first = 1LL * (a[i] - 'a' + 1) * p[i].first % m1;
+        A[i].second = 1LL * (a[i] - 'a' + 1) * p[i].second % m2;
+        if(i) {
+            A[i].first = (1LL * A[i].first + A[i - 1].first) % m1;
+            A[i].second = (1LL * A[i].second + A[i - 1].second) % m2;
+        }
+    }
+}
+
+pair<int, int>get_hash(int i, int j) {
+    pair<int, int>has = A[j];
+    if(i) {
+        has.first = (1LL * has.first - A[i - 1].first + m1) % m1;
+        has.first = 1LL * has.first * i_p[i].first % m1;
+        has.second = (1LL * has.second - A[i - 1].second + m2) % m2;
+        has.second = 1LL * has.second * i_p[i].second % m2;
+    }
+    return has;
+}
+
+int32_t main() {
+  pre_cal();
+  string a, b;
+  int k;
+  cin >> a >> b >> k;
+  int good_bad[27] = {};
+  for(int i = 0; i < 26; i++) {
+    if(b[i] == '1')good_bad[i] = 1;
+  }
+
+  int n = a.size();
+  build(a, n);
+  vector<pair<int, int>>ans;
+  for(int i = 0; i < n; i++) {
+    int temp = 0;
+    for(int j = i; j < n; j++) {
+      int c = a[j] - 'a';
+      if(!good_bad[c]) temp++;
+      if(temp > k) break;
+      ans.push_back(get_hash(i, j));
+    }
+  }
+
+  sort(ans.begin(), ans.end());
+  auto it = unique(ans.begin(), ans.end());
+  ans.resize(distance(ans.begin(), it));
+  cout << ans.size() << '\n';
+  return 0;
+}

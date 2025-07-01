@@ -1,0 +1,1 @@
+/*"weighted average is a different concept than normal average.To calculate a weighted average, one must find the products of each value and its corresponding weight, add all these products together, and then divide this number by the sum of all weights in the data set. The resulting quotient is the weighted average."*/

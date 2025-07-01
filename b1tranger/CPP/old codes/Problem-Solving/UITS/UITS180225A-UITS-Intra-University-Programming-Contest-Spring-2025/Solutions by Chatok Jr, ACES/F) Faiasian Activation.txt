@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define ll long long
+#define endl "\n"
+
+const ll N = 1e7 + 1;
+
+void solve(int tc) {
+    ll x, a, b;
+    cin >> x >> a >> b;
+    if(x < a) cout << 0 << "\n";
+    else if(x > b) cout << x * x << "\n";
+    else cout << abs(x) << "\n";
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+    int t = 1;
+    //cin >> t;
+    for (int i = 1; i <= t; i++) solve(i);
+}

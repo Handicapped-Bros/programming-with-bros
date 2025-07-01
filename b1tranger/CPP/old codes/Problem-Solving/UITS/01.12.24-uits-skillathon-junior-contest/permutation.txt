@@ -1,0 +1,8 @@
+permutation hocche, tumak n=5 diye jodi bole 5 er permutation array dewa ache, tahole bujhba 1 theke 5 shob gulo value array te ache. 5 er beshi 1 er kom thakbe na. [1, 5, 2, 4, 3] just elo melo thakbe.
+
+ekhon tumake bolse array theke jekono ekta value niba X then shei valu e ke diye shob cheye maximum koita value ke divide kora jai??
+SH Shafayat
+ekhon amra jani permutation so, 1 to thakbei. ar shei 1 diye shob gulo value ke divide kora jai right? tar mane n ta value thakle n ta value e divide kora jai
+SH Shafayat
+SH Shafayat Hossain
+tar amne output shudu N
