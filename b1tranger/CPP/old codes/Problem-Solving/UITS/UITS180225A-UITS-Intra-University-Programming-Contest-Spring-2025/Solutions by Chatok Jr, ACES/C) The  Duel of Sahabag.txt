@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define ll long long
+#define pb push_back
+#define endl "\n"
+#define all(v) v.begin(), v.end()
+#define rall(v) v.rbegin(), v.rend()
+
+const ll N = 1e7 + 1;
+
+int rev(int n) {
+    int ans = 0;
+    while (n) {
+        ans *= 10;
+        ans += n % 10;
+        n /= 10;
+    }
+    return ans;
+}
+
+void solve(int tc)
+{
+    int n; cin >> n;
+    priority_queue<ll> a, b;
+    for (int i = 0 ; i < n; i++) {
+        ll x; cin >> x;
+        a.push(x);
+    }
+    for (int i = 0; i < n; i++) {
+        ll x; cin >> x;
+        b.push(x);
+    }
+    int cnt = 0;
+    while (n--) {
+        char c; cin>> c;
+        if (c == 'H') {
+            if (a.top() < b.top()) {
+                cnt--;
+            }
+            else if (a.top() > b.top()) {
+                cnt++;
+            }
+            a.pop();
+            b.pop();
+        }
+        else {
+            int aa = a.top(), bb = b.top();
+            a.pop();
+            b.pop();
+            a.push(rev(aa));
+            b.push(rev(bb));
+        }
+    }
+    if (cnt > 0) {
+        cout << "PALASH" << endl;
+    }
+    else if (cnt < 0) {
+        cout << "MRIDUL" << endl;
+    }
+    else cout << "TIE" << endl;
+}
+
+int32_t main() {
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int t = 1;
+    cin >> t;
+    for (int i = 1; i <= t; i++) solve(i);
+}

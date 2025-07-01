@@ -1,0 +1,42 @@
+1. Print all even numbers between  2 to 500 using for loop 
+
+2. Print the sum of all odd numbers between 2 to 1000 using while loop
+
+3. Print Multiplication-table of 1 to 5 using for loop 
+
+4. Print Multiplication-table of 6 to 10 using while loop
+
+5. Take two numbers x and y as input n times and print their sum, multiplication, division.
+
+6. Take one number x as input n times and make a 3 line matrix with that number.
+
+7. Take one number x as input and make a 5 line matrix with the odd numbers between 1 to 10 x times.
+
+8. Take one number x as input and take a character ch as input and make a matrix using next 3 character of ch x times.
+
+9. Make these patterns using loops 
+*
+**
+***
+****
+
+*****
+****
+***
+**
+*
+
+*+*+*
++*+*
+*+*
++*
+*
+
+10. Using do while loop print this message "We can do it" 0 times.
+
+
+
+
+
+
+

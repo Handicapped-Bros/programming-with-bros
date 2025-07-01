@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define pb push_back
+#define e "\n"
+
+const int N = 200;
+int n, m;
+int g[N + 7][N + 7];
+int c[N + 7][N + 7];
+
+int xo[]= {1, 0};
+int yo[] = {0, 1};
+
+void dijkstra() {
+    priority_queue<vector<int>,vector<vector<int>>, greater<vector<int>>>q;
+    q.push({1, 1, g[1][1]});
+    c[1][1] = g[1][1];
+    while(!q.empty()) {
+        vector<int>node;
+        node = q.top();
+        q.pop();
+        for(int i = 0; i < 2; i++) {
+            int x1 = node[0] + xo[i];
+            int y1 = node[1] + yo[i];
+            if(x1 <= n && y1 <= m) {
+                int n_c = g[x1][y1] + node[2];
+                if(c[x1][y1] >= n_c) {
+                    c[x1][y1] = n_c;
+                    q.push({x1,y1,n_c});
+                }
+            }
+        }
+    }
+}
+
+int32_t main() {
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+    for(int i = 0; i <= N; i++) {
+        for(int j = 0; j <= N; j++) {
+            c[i][j] = INT_MAX;
+        }
+    }
+
+    cin >> n >> m;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= m; j++) {
+            cin >> g[i][j];
+        }
+    }
+    dijkstra();
+    cout << c[n][m] << "\n";
+    return 0;
+}
