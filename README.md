@@ -1,6 +1,11 @@
 # programming-with-bros
 collaborative programming, each contributing through their own branch, in their own folders
 
+# Purpose
+- getting used to the GitHub's work environment. 
+- using GitHub branch, fork, clone, fetch, pull origin, commit, push, pull request 
+- slowly moving towards actual projects with practical application
+
 # Note
 - Fork the main branch for backup + Social Creds
 - Create a branch with your name
