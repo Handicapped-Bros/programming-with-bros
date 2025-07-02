@@ -4,7 +4,7 @@ collaborative programming, each contributing through their own branch, in their 
 # Note
 - Fork the main branch for backup + Social Creds
 - Create a branch with your name
-- Create a folder with your name
+- Create a folder with your name (only edit your folder)
 - before Creating Pull Request make sure to delete:
 > - *.exe *.o (for C/CPP)
 > - NetBeans or IDE created files (for JAVA)
