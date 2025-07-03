@@ -3,3 +3,5 @@
 /b1tranger/JAVA/netbeans_ant/01/build/
 /b1tranger/JAVA/netbeans_/01/target/
 /b1tranger/JAVA/netbeans_maven/01/target/
+*.exe
+*.json
